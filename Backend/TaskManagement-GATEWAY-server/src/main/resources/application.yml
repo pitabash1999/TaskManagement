@@ -1,0 +1,37 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: TaskManagement-GATEWAY-server
+  cloud:
+    gateway:
+      routes:
+        - id: TASKMANAGEMENT-USER-SERVICE
+          uri: lb://TASKMANAGEMENT-USER-SERVICE
+          predicates:
+            - Path=/api/signup,/api/login,/auth/users,/auth/getProfile
+
+        - id: TASKMANAGEMENT-TASK-SERVICE
+          uri: lb://TASKMANAGEMENT-TASK-SERVICE
+          predicates:
+            - Path=/api/task/**
+
+        - id: TASKMANAGEMENT-SUBMISSION-SERVICE
+          uri: lb://TASKMANAGEMENT-SUBMISSION-SERVICE
+          predicates:
+            - Path=/api/submission/**
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:5173"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+            exposedHeaders: "Authorization"
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:2003/eureka/

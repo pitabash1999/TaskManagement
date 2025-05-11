@@ -1,0 +1,32 @@
+server:
+  port: 2000
+
+spring:
+  application:
+    name: TaskManagement-user-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/task_management
+    username: postgres
+    password: Kuna@1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://localhost:2003/eureka/
+
+jwt:
+  secret: "352e814516c168f86385b33eb117c930135b7d63860e1fee3ed975dcf04e0a7943fe860d635ff4d791e1e6e8c74f25869f9f5eb8b4544141820ef9f697f41e6e33e7dd9aa646682db3510cd37f23dab75479c41b558f68e008cdc234965f431be7befc57d2d957dc24451f1a9b60a5c736d799ee15043f24069020a5e162ab9d6dbe1da1cbc5dacee16921e786097265e7ac2eadca43dc86719b8bf40f6a0d7b11b9c3172b6a7ae662b774ae3dc5c23f933e13e6b13b4b7e4a7d4c259fc4956b7cdb7e28a56e1a03234f1a1c6bdc98831cfb3b424e43cea46d6f7adebf2a8dc1bfda769d4bdc5db08cb630f87e94b8fb173276e2d2013afa3366c36df9e83002"
+  expiration: 17280000
