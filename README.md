@@ -2,8 +2,7 @@
 
 A full-stack Task Management application built using **Spring Boot Microservices** for the backend and **React** for the frontend. This project allows users to create, assign, update, and track tasks with a focus on scalability, modularity, and user experience.
 
-![System Architecture](https://via.placeholder.com/800x400?text=Task+Management+System+Architecture) 
-*(Consider adding a real architecture diagram here)*
+
 
 ## 🌟 Features
 
@@ -33,9 +32,9 @@ A full-stack Task Management application built using **Spring Boot Microservices
 | Discovery Server | Spring Eureka                        |
 | Task Service     | Spring Boot, Spring Data JPA         |
 | User Service     | Spring Boot, Spring Security        |
-| Auth Service     | JWT, Spring Security                |
+| Submission Service| Spring Boot, Spring Data JPA        |
 | Database         | PostgreSQL                           |
-| Utilities        | Lombok, ModelMapper                 |
+| Utilities        | Lombok                               |
 
 ### Frontend
 - React.js with Hooks
@@ -53,7 +52,7 @@ task-management-system/
 │ ├── discovery-server/ # Eureka Server
 │ ├── task-service/ # Task management logic
 │ ├── user-service/ # User management
-│ └── auth-service/ # Authentication
+│ └── Submission-service/ # Task submission
 ├── frontend/
 │ └── task-manager-client/ # React application
 ├── README.md
@@ -64,7 +63,6 @@ task-management-system/
 
 ### Prerequisites
 - Java 17+
-- Node.js 16+
 - PostgreSQL
 - Maven
 
@@ -93,7 +91,7 @@ cd ../auth-service && mvn spring-boot:run
 
 cd frontend/task-manager-client
 npm install
-npm start
+npm run dev
 
 🔒 Security
 JWT-based stateless authentication
@@ -101,5 +99,3 @@ JWT-based stateless authentication
 Spring Security for endpoint protection
 
 Password encryption
-
-Role-based authorization
